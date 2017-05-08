@@ -18,4 +18,8 @@ describe('reject()', () => {
     const orderItems = _.reject(order, (value) => value === null);
     expect(orderItems).toEqual(['burger', 'ketchup', 'cookie']);
   });
+  it('rejects null values from an array', () => {
+    const array = [2, 'old', 5, 'McDonald', 'had', 8, null, 11];
+    expect(_.reject(array, values => values === null)).toEqual([2, 'old', 5, 'McDonald', 'had', 8, 11]);
+  });
 });
