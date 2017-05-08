@@ -39,5 +39,23 @@ describe('each()', () => {
     });
     expect(count).toBe(3);
   });
+  it('iterates every property of an object (even if it is another object), passing the value, the corresponding key, and the entire object to the callback', () => {
+    const obj = {
+      name: 'Calvin',
+      age: 6,
+      occupation: 'student',
+      friend: {
+        name: 'Hobbs',
+        age: 'unknown',
+        occupation: 'spirit animal'
+      }
+    };
+    let count = 0;
+    _.each(obj, function(value, key, iteratedObj) {
+      expect(value).toEqual(iteratedObj[key]);
+      count += 1;
+    });
+    expect(count).toBe(4);
+  });
 });
 
