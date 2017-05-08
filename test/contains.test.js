@@ -30,5 +30,14 @@ describe('contains()', () => {
     };
     expect(_.contains(ponies, 'Applejack')).toBe(false);
   });
+  it('returns false if the target value is not among the values of an object', () => {
+    const lies = {
+      'Harry is a Wizard': true,
+      'The Cake is a lie': true,
+      'Gatorade is better than water': true,
+      'Jon Snow is alive': true
+    };
+    expect(_.contains(lies, false)).toBe(false);
+  });
 
 });
