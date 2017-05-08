@@ -22,4 +22,10 @@ describe('isArrayLike()', () => {
     const nonArrayLikeObj2 = false
     expect(_.isArrayLike(nonArrayLikeObj2)).toBe(false);
   });
+  it('returns true for the Argument array-like object', () => {
+    const someFunction = function(a,b) {
+    return arguments  
+    };
+    expect(_.isArrayLike(someFunction(1,2,3,4))).toBe(true);
+  });
 });
